@@ -1,0 +1,336 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Vestidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="hero">
+    <div class="container">
+      <nav class="top-nav">
+        <div class="brand">Maison Vestidos</div>
+        <div class="nav-actions">
+          <button class="ghost" id="openLookbook">Lookbook</button>
+          <button class="cart-btn" id="openCart">
+            <span>Carrito</span>
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+        </div>
+      </nav>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 hero-copy">
+        <p class="eyebrow">Colección 2026</p>
+        <h1>Vestidos que cuentan historias.</h1>
+        <p class="lead">Una tienda boutique con piezas fluidas, cortes limpios y detalles artesanales. Elige tu favorito y llévalo directo a tu carrito.</p>
+        <div class="hero-cta">
+          <button class="primary" id="scrollCatalog">Explorar catálogo</button>
+          <button class="secondary" id="watchRunway">Ver pasarela</button>
+        </div>
+        <div class="metrics">
+          <div>
+            <span class="metric-value">48h</span>
+            <span class="metric-label">Despacho</span>
+          </div>
+          <div>
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Edición limitada</span>
+          </div>
+          <div>
+            <span class="metric-value">+2k</span>
+            <span class="metric-label">Clientas felices</span>
+          </div>
+        </div>
+        </div>
+        <div class="col-lg-6 hero-visual" id="runway">
+        <div class="runway-card">
+          <img src="img/pexels-jonathanborba-3014856.jpg" alt="Vestido destacado" />
+          <div class="runway-overlay">
+            <span>Pasarela</span>
+            <h3>Luz de Seda</h3>
+            <p>Movimiento y textura con caída suave.</p>
+          </div>
+        </div>
+        <div class="runway-strip" id="runwayStrip">
+          <img src="img/pexels-manzano-31573566.jpg" alt="Look 01" />
+          <img src="img/pexels-d-ng-thanh-tu-2922122-5693889.jpg" alt="Look 02" />
+          <img src="img/pexels-kyleroxas-2122354.jpg" alt="Look 03" />
+          <img src="img/pexels-soldiervip-1468379.jpg" alt="Look 04" />
+        </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+          <p class="eyebrow">Catálogo</p>
+          <h2>Vestidos listos para brillar</h2>
+        </div>
+        <div class="filters">
+          <div class="filter-group">
+            <span class="filter-label">Estilo</span>
+            <button class="chip active" data-group="category" data-filter="all">Todo</button>
+            <button class="chip" data-group="category" data-filter="noche">Noche</button>
+            <button class="chip" data-group="category" data-filter="coctel">Cóctel</button>
+            <button class="chip" data-group="category" data-filter="dia">Día</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Talla</span>
+            <button class="chip active" data-group="size" data-filter="all">Todas</button>
+            <button class="chip" data-group="size" data-filter="xs">XS</button>
+            <button class="chip" data-group="size" data-filter="s">S</button>
+            <button class="chip" data-group="size" data-filter="m">M</button>
+            <button class="chip" data-group="size" data-filter="l">L</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Color</span>
+            <button class="chip active" data-group="color" data-filter="all">Todos</button>
+            <button class="chip" data-group="color" data-filter="marfil">Marfil</button>
+            <button class="chip" data-group="color" data-filter="vino">Vino</button>
+            <button class="chip" data-group="color" data-filter="azul">Azul</button>
+            <button class="chip" data-group="color" data-filter="rosa">Rosa</button>
+          </div>
+          <div class="filter-group price-group">
+            <span class="filter-label">Precio</span>
+            <div class="price-controls">
+              <input type="range" id="priceRange" min="40" max="100" value="100" step="1" />
+              <span class="price-value" id="priceValue">$100</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class="row g-4" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="signature">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6 signature-copy">
+            <p class="eyebrow">Experiencia</p>
+            <h2>Una compra tan elegante como tu próxima salida.</h2>
+            <p>Agrega al carrito, revisa tus piezas favoritas y confirma con una pasarela de pago simulada para probar el flujo completo.</p>
+            <ul class="bullet">
+              <li>Envío gratuito desde $90</li>
+              <li>Devoluciones en 15 días</li>
+              <li>Asesoría de estilo incluida</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 signature-images">
+            <img src="img/pexels-luisbecerrafotografo-5934445.jpg" alt="Detalle del vestido" />
+            <img src="img/pexels-alexander-mass-748453803-34318992.jpg" alt="Texturas" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Reseñas</p>
+            <h2>Lo que dicen nuestras clientas</h2>
+          </div>
+          <p class="lead">Opiniones reales sobre la caída, comodidad y detalle de cada pieza.</p>
+        </div>
+        <div class="reviews-grid">
+        <article class="review-card">
+          <img src="img/pexels-soldiervip-1468376.jpg" alt="Clienta con vestido" />
+          <div>
+            <h4>Valeria M.</h4>
+            <span class="review-score">5/5</span>
+            <p>La tela es ligera y el corte estiliza mucho. Me preguntaron por el vestido toda la noche.</p>
+          </div>
+        </article>
+        <article class="review-card">
+          <img src="img/pexels-manzano-31573562.jpg" alt="Clienta elegante" />
+          <div>
+            <h4>Camila R.</h4>
+            <span class="review-score">5/5</span>
+            <p>El ajuste en cintura es perfecto. Compré uno para evento y otro para un cóctel.</p>
+          </div>
+        </article>
+        <article class="review-card">
+          <img src="img/pexels-daniel-moises-magulado-199841-7612730.jpg" alt="Clienta sonriente" />
+          <div>
+            <h4>Natalia P.</h4>
+            <span class="review-score">4.9/5</span>
+            <p>Envío rápido y empaque hermoso. La asesoría por chat fue muy útil.</p>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Contacto</p>
+            <h2>Hablemos por WhatsApp</h2>
+          </div>
+          <p class="lead">Cuéntanos qué vestido te interesa y te respondemos en minutos.</p>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label>
+              Nombre
+              <input type="text" name="name" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="tu@email.com" required />
+            </label>
+          </div>
+          <label>
+            Asunto
+            <input type="text" name="subject" placeholder="Evento, talla, color..." required />
+          </label>
+          <label>
+            Mensaje
+            <textarea name="message" rows="4" placeholder="Cuéntanos qué buscas" required></textarea>
+          </label>
+          <button class="primary" type="submit">Enviar por WhatsApp</button>
+          <p class="fine" id="contactHint">Se abrirá WhatsApp con el mensaje listo para enviar.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart" id="cartPanel">
+    <div class="cart-header">
+      <h3>Tu carrito</h3>
+      <button class="icon" id="closeCart">Cerrar</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <div class="summary-row">
+        <span>Envío</span>
+        <span id="cartShipping">$0</span>
+      </div>
+      <div class="summary-row">
+        <span>Descuento</span>
+        <span id="cartDiscount">$0</span>
+      </div>
+      <div class="summary-total">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <div class="coupon">
+        <input type="text" id="couponInput" placeholder="Código de descuento" />
+        <button class="secondary" id="applyCoupon">Aplicar</button>
+      </div>
+      <p class="fine" id="couponMessage"></p>
+      <button class="primary" id="checkoutBtn">Ir a pagar</button>
+      <p class="fine">Pago simulado. No se realizan cargos reales.</p>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <div class="checkout-content">
+      <div class="checkout-header">
+        <h3>Pasarela de pago</h3>
+        <button class="icon" id="closeModal">Cerrar</button>
+      </div>
+      <div class="stepper" id="stepper">
+        <div class="step active" data-step="1">1. Envío</div>
+        <div class="step" data-step="2">2. Pago</div>
+        <div class="step" data-step="3">3. Confirmación</div>
+      </div>
+      <div class="modal-body" id="checkoutBody"></div>
+      <div class="modal-actions">
+        <button class="secondary" id="backStep">Atrás</button>
+        <button class="primary" id="nextStep">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lookbook" id="lookbook">
+    <div class="lookbook-header">
+      <h3>Lookbook</h3>
+      <button class="icon" id="closeLookbook">Cerrar</button>
+    </div>
+    <div id="lookbookCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/pexels-asphotography-291759.jpg" class="d-block w-100" alt="Niebla de Ámbar" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-asphotography-291738.jpg" class="d-block w-100" alt="Aura Jardin" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-manzano-31573564.jpg" class="d-block w-100" alt="Seda Nocturna" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-polina-kovaleva-5507238.jpg" class="d-block w-100" alt="Brisa Rosé" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-kyleroxas-2122354.jpg" class="d-block w-100" alt="Luz del Alba" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-cengiz-akturk-301810532-13715605.jpg" class="d-block w-100" alt="Velvet Moon" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-luisbecerrafotografo-5934457.jpg" class="d-block w-100" alt="Coral de Medianoche" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-leeloothefirst-4554026.jpg" class="d-block w-100" alt="Isla Serena" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-soldiervip-1468376.jpg" class="d-block w-100" alt="Noche de Azahar" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-nipendhbd-730055.jpg" class="d-block w-100" alt="Aura de Seda" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-zvolskiy-1721940.jpg" class="d-block w-100" alt="Celeste Lumen" />
+        </div>
+        <div class="carousel-item">
+          <img src="img/pexels-tolgaaslanturk-14517772.jpg" class="d-block w-100" alt="Brillo Imperial" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#lookbookCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#lookbookCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-4">
+      <div>
+        <h4>Maison Vestidos</h4>
+        <p>Moda consciente, siluetas modernas y detalles artesanales.</p>
+      </div>
+      <div class="footer-links">
+        <span>Atención al cliente</span>
+        <span>Guía de tallas</span>
+        <span>Política de cambios</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
