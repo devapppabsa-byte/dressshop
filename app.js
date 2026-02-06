@@ -147,6 +147,8 @@ const checkoutModal = document.getElementById("checkoutModal");
 const checkoutBody = document.getElementById("checkoutBody");
 const stepper = document.getElementById("stepper");
 const lookbook = document.getElementById("lookbook");
+const openLookbookBtn = document.getElementById("openLookbook");
+const closeLookbookBtn = document.getElementById("closeLookbook");
 const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const couponInput = document.getElementById("couponInput");
@@ -368,6 +370,7 @@ function resetCheckoutButtons() {
 }
 
 function toggleLookbook(show) {
+  if (!lookbook) return;
   if (show) {
     lookbook.classList.add("show");
     overlay.classList.add("show");
@@ -439,8 +442,12 @@ document.getElementById("watchRunway").addEventListener("click", () => {
   setTimeout(() => document.getElementById("runwayStrip").classList.remove("pulse"), 800);
 });
 
-document.getElementById("openLookbook").addEventListener("click", () => toggleLookbook(true));
-document.getElementById("closeLookbook").addEventListener("click", () => toggleLookbook(false));
+if (openLookbookBtn) {
+  openLookbookBtn.addEventListener("click", () => toggleLookbook(true));
+}
+if (closeLookbookBtn) {
+  closeLookbookBtn.addEventListener("click", () => toggleLookbook(false));
+}
 
 overlay.addEventListener("click", () => {
   closeCart();
